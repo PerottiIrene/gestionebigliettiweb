@@ -14,14 +14,13 @@ public class BigliettoServiceImpl implements BigliettoService {
 
 	@Override
 	public void setBigliettoDao(BigliettoDAO bigliettoDao) {
-		this.bigliettoDAO = bigliettoDAO;
+		this.bigliettoDAO = bigliettoDao;
 	}
 
 	@Override
 	public List<Biglietto> listAll() throws Exception {
 		// questo è come una connection
 		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
-
 		try {
 			// uso l'injection per il dao
 			bigliettoDAO.setEntityManager(entityManager);
