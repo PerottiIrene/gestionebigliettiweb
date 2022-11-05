@@ -6,9 +6,8 @@ import javax.persistence.EntityManager;
 
 import it.prova.gestionebigliettiweb.model.Biglietto;
 
+public class BigliettoDAOImpl implements BigliettoDAO {
 
-public class BigliettoDAOImpl implements BigliettoDAO{
-	
 	private EntityManager entityManager;
 
 	@Override
@@ -27,7 +26,7 @@ public class BigliettoDAOImpl implements BigliettoDAO{
 			throw new Exception("Problema valore in input");
 		}
 		entityManager.merge(input);
-		
+
 	}
 
 	@Override
@@ -44,13 +43,39 @@ public class BigliettoDAOImpl implements BigliettoDAO{
 			throw new Exception("Problema valore in input");
 		}
 		entityManager.remove(entityManager.merge(input));
-		
+
 	}
 
 	@Override
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
-		
+
+	}
+
+	@Override
+	public List<Biglietto> findByExample(Biglietto input) throws Exception {
+
+		if (input == null)
+			throw new Exception("Valore di input non ammesso.");
+
+		String query = "from Biglietto where 1=1 ";
+		if (input.getProvenienza() != null && !input.getProvenienza().isEmpty()) {
+			query += " and provenienza like '" + input.getProvenienza() + "%' ";
+		}
+
+		if (input.getDestinazione() != null && !input.getDestinazione().isEmpty()) {
+			query += " and destinazione like '" + input.getDestinazione() + "%' ";
+		}
+
+		if (input.getPrezzo() != null && input.getPrezzo() > 0) {
+			query += " and prezzo = '" + input.getPrezzo() + "";
+		}
+
+		if (input.getData() != null) {
+			query += " and data='" + new java.sql.Date(input.getData().getTime()) + "' ";
+		}
+
+		return entityManager.createQuery(query, Biglietto.class).getResultList();
 	}
 
 }
