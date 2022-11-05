@@ -7,7 +7,7 @@
 	 	<!-- Common imports in pages -->
 	 	<jsp:include page="../header.jsp" />
 	   
-	   <title>Inserisci Nuovo Elemento</title>
+	   <title>Modifica Elemento</title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
 	   
@@ -34,16 +34,18 @@
 			  
 			  <div class='card'>
 				    <div class='card-header'>
-				        <h5>Inserisci nuovo elemento</h5> 
+				        <h5>Modifica elemento</h5> 
 				    </div>
 				    <div class='card-body'>
 		
 							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
-							<form method="post" action="ExecuteInsertServlet" class="row g-3" novalidate="novalidate">
+							<form method="post" action="ExecuteUpdateServlet" class="row g-3" novalidate="novalidate">
 							
 								<% Biglietto bigliettoInPagina = (Biglietto)request.getAttribute("insert_biglietto_attr"); %>
+								
+								<input type="hidden" name="id" value="<%=bigliettoInPagina.getId() %>" >
 							
 								<div class="col-md-6">
 									<label for="provenienza" class="form-label">Provenienza <span class="text-danger">*</span></label>

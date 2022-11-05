@@ -49,10 +49,10 @@
 				                <thead>
 				                    <tr>
 			                         	<th>Id</th>
-				                        <th>Codice</th>
-				                        <th>Descrizione</th>
+				                        <th>Provenienza</th>
+				                        <th>Destinazione</th>
 				                        <th>Prezzo</th>
-				                        <th>Data di Arrivo</th>
+				                        <th>Data</th>
 				                        <th>Azioni</th>
 				                    </tr>
 				                </thead>
@@ -67,7 +67,7 @@
 				                        <td><%=item.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(item.getData()):"N.D."%></td>
 				                        <td>
 											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaServlet?idBiglietto=<%=item.getId() %>">Visualizza</a>
-											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="laservletpermodificare">Edit</a>
+											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareUpdateServlet?idBiglietto=<%=item.getId() %>">Edit</a>
 											<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteServlet?idBiglietto=<%=item.getId() %>">Delete</a>
 										</td>
 				                    </tr>
