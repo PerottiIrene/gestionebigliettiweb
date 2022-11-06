@@ -5,7 +5,7 @@ import java.util.List;
 import it.prova.gestionebigliettiweb.dao.BigliettoDAO;
 import it.prova.gestionebigliettiweb.model.Biglietto;
 
-public interface BigliettoService {
+public interface ArticoloService {
 	
 	// questo mi serve per injection
 		public void setBigliettoDao(BigliettoDAO bigliettoDao);

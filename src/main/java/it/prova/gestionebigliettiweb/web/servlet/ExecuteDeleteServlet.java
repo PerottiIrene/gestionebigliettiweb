@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import it.prova.gestionebigliettiweb.model.Biglietto;
-import it.prova.gestionebigliettiweb.service.BigliettoService;
+import it.prova.gestionebigliettiweb.service.ArticoloService;
 import it.prova.gestionebigliettiweb.service.MyServiceFactory;
 
 
@@ -31,7 +31,7 @@ public class ExecuteDeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String parametroIdDelBigliettoCheVoglioEliminare = request.getParameter("idBigliettoDaEliminare");
 
-		BigliettoService bigliettoServiceInstance = MyServiceFactory.getBigliettoServiceInstance();
+		ArticoloService bigliettoServiceInstance = MyServiceFactory.getBigliettoServiceInstance();
 		
 		if (!NumberUtils.isCreatable(parametroIdDelBigliettoCheVoglioEliminare)) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo

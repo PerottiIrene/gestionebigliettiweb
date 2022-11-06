@@ -7,10 +7,10 @@ public class MyServiceFactory {
 
 	// implementiamo il singleton in modo da evitare
 	// proliferazione di riferimenti
-	private static BigliettoService BIGLIETTO_SERVICE_INSTANCE = null;
+	private static ArticoloService BIGLIETTO_SERVICE_INSTANCE = null;
 	private static BigliettoDAO BIGLIETTODAO_INSTANCE = null;
 
-	public static BigliettoService getBigliettoServiceInstance() {
+	public static ArticoloService getBigliettoServiceInstance() {
 		if (BIGLIETTO_SERVICE_INSTANCE == null)
 			BIGLIETTO_SERVICE_INSTANCE = new BigliettoServiceImpl();
 

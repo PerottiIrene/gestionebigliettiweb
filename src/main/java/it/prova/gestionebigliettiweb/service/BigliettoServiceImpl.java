@@ -8,7 +8,7 @@ import it.prova.gestionebigliettiweb.dao.BigliettoDAO;
 import it.prova.gestionebigliettiweb.model.Biglietto;
 import it.prova.gestionebigliettiweb.web.listener.LocalEntityManagerFactoryListener;
 
-public class BigliettoServiceImpl implements BigliettoService {
+public class BigliettoServiceImpl implements ArticoloService {
 
 	private BigliettoDAO bigliettoDAO;
 

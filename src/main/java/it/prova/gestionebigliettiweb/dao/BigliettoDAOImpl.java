@@ -68,11 +68,11 @@ public class BigliettoDAOImpl implements BigliettoDAO {
 		}
 
 		if (input.getPrezzo() != null && input.getPrezzo() > 0) {
-			query += " and prezzo = '" + input.getPrezzo() + "";
+			query += " and prezzo = '" + input.getPrezzo() + "' ";
 		}
 
 		if (input.getData() != null) {
-			query += " and data='" + new java.sql.Date(input.getData().getTime()) + "' ";
+			query += " and data='" + input.getData().toInstant() + "' ";
 		}
 
 		return entityManager.createQuery(query, Biglietto.class).getResultList();
