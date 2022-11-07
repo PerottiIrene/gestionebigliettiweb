@@ -1,5 +1,6 @@
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="it.prova.gestionebigliettiweb.model.Biglietto"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.util.List"%>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <!doctype html>
@@ -57,21 +58,20 @@
 				                    </tr>
 				                </thead>
 				                <tbody>
-				                	<% List<Biglietto> listaArticoli = (List<Biglietto>)request.getAttribute("listaAttribute");
-				                		for(Biglietto item:listaArticoli){ %>
+				                		<c:forEach items="${listaAttribute}" var="biglietto">
 				                    <tr >
-				                        <td><%=item.getId() %></td>
-				                        <td><%=item.getProvenienza() %></td>
-				                        <td><%=item.getDestinazione() %></td>
-				                        <td><%=item.getPrezzo() %></td>
-				                        <td><%=item.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(item.getData()):"N.D."%></td>
+				                        <td>${biglietto.id}</td>
+				                        <td>${biglietto.provenienza}</td>
+				                        <td>${biglietto.destinazione}</td>
+				                        <td>${biglietto.prezzo}</td>
+				                        <td>${biglietto.data}</td>
 				                        <td>
-											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaServlet?idBiglietto=<%=item.getId() %>">Visualizza</a>
-											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareUpdateServlet?idBiglietto=<%=item.getId() %>">Edit</a>
-											<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteServlet?idBiglietto=<%=item.getId() %>">Delete</a>
+											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaServlet?idBiglietto=${biglietto.id}">Visualizza</a>
+											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareUpdateServlet?idBiglietto=${biglietto.id} ">Edit</a>
+											<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteServlet?idBiglietto=${biglietto.id}">Delete</a>
 										</td>
 				                    </tr>
-				                    <% } %>
+				                   </c:forEach>
 				                    
 				                </tbody>
 				            </table>
