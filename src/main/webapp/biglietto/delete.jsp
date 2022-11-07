@@ -55,7 +55,7 @@
 						<input type="hidden" name="idBigliettoDaEliminare" value="${visualizza_biglietto_attr.id }">
 					 	<input type="submit" class='btn btn-outline-danger' value="Conferma Eliminazione">
 					 	
-					 	<a href="ListServlet" class='btn btn-outline-secondary'
+					 	<a href="${pageContext.request.contextPath}/ListServlet" class='btn btn-outline-secondary'
 						style='width: 80px'> <i class='fa fa-chevron-left'></i> Back
 						</a>
 					</form>

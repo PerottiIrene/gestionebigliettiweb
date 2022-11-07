@@ -19,7 +19,7 @@ import it.prova.gestionebigliettiweb.service.MyServiceFactory;
 /**
  * Servlet implementation class ExecuteDeleteServlet
  */
-@WebServlet("/ExecuteDeleteServlet")
+@WebServlet("/admin/ExecuteDeleteServlet")
 public class ExecuteDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

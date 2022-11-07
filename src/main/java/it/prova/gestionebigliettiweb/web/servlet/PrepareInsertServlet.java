@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.prova.gestionebigliettiweb.model.Biglietto;
 
-@WebServlet("/PrepareInsertServlet")
+@WebServlet("/admin/PrepareInsertServlet")
 public class PrepareInsertServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
